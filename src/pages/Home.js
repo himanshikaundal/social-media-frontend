@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from '../compnents/Navbar';
+import Profile from '../compnents/Profile';
+import Uploadpost from '../compnents/Uploadpost';
 
 const Home = () => {
    const state=useSelector(state=>state)
@@ -8,8 +10,9 @@ const Home = () => {
     return (
 
      <>
-     <Navbar/>
-
+     {/* <Navbar/>
+     <Profile/>  */}
+     <Uploadpost/>
      
      </>
     );
