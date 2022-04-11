@@ -5,7 +5,7 @@ import garden from '../assets/images/nav-img/lovegarden.jpg'
 function Feed() {
     return (
         <>
-            <div className="card p-2">
+            <div className="card border border-1 p-2">
                 <div className="card-body">
                     <div className="card-title d-flex justify-content-between">
                         <div className='d-flex'>
