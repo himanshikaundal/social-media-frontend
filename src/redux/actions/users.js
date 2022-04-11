@@ -11,10 +11,9 @@ export const login = (values) => dispatch => {
     })
     // .then(res=>res.data)
     .then((res)=>{
+        console.log(res);
         const result=res.data
         const {user}=result.data
-     
-        console.log(user);
         dispatch({type:LOGIN,payload:user})
     }).catch(rej=>console.log(rej));
     

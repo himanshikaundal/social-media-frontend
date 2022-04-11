@@ -53,7 +53,8 @@ const Login = () => {
                 onSubmit={(values, actions) => {
                     dispatch(login(values));
                     console.log(values)
-                    actions.setSubmitting(true);
+                    actions.setSubmitting(false);
+                 
                    
                 }}
                 validationSchema={loginSchema}
@@ -69,14 +70,14 @@ const Login = () => {
                            
                            <Field type="email" name="email" value={props.values.email} className="form-control border-top-0 border-end-0 border-start-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='TTN Username'/>
                            {props.errors.email && props.touched.email ? (
-                                         <div>{props.errors.email}</div>
+                                         <div className="bg-danger text-white">{props.errors.email}</div>
                                      ) : null}
                          </div>
                          <div className="mb-4">
                            
                            <Field type="password" name="password" value={props.values.password} className="form-control border-top-0 border-end-0 border-start-0" id="exampleInputPassword1" placeholder='password'/>
                            {props.errors.password && props.touched.password ? (
-                                         <div>{props.errors.password}</div>
+                                         <div className="bg-danger text-white" >{props.errors.password}</div>
                                      ) : null}
                          </div>
                            <div className="d-flex justify-content-between">
@@ -92,8 +93,9 @@ const Login = () => {
                              
                          </div>
                          <div className="sm-4 text-center py-2">
-                         <button type="submit"  className="btn-purple  text-white rounded-pill px-5 py-2 border-0"> Sign In {props.isSubmitting ? "Loading..." : null}</button>
-                         
+                         <button type="submit"  className="btn-purple  text-white rounded-pill px-5 py-2 border-0"> Sign In </button>
+                        
+                         {props.isSubmitting ? "Loading..." : null}
                          </div>
                        </form>
              

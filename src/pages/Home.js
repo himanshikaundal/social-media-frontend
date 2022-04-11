@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from '../compnents/Navbar';
+import Feed from '../compnents/Feed';
 
 const Home = () => {
    const state=useSelector(state=>state)
@@ -9,6 +10,7 @@ const Home = () => {
 
      <>
      <Navbar/>
+     <Feed/>
 
      
      </>
