@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from '../compnents/Navbar';
 import Profile from '../compnents/Profile';
+import Suggestion from '../compnents/Suggestion';
 import Uploadpost from '../compnents/Uploadpost';
 
 const Home = () => {
@@ -10,9 +11,10 @@ const Home = () => {
     return (
 
      <>
-     {/* <Navbar/>
-     <Profile/>  */}
-     <Uploadpost/>
+      <Navbar/>
+     <Profile/>  
+     <Uploadpost/> 
+     <Suggestion/>
      
      </>
     );

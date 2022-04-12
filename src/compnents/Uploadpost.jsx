@@ -3,6 +3,8 @@ import himanshi from "../assets/images/nav-img/himanshi.jpeg";
 
 function Uploadpost() {
   return (
+
+  
     <div className='d-flex bg-light justify-content-between'>
       <div className=''> 
         <img src={himanshi} width='55rem' class="rounded-circle mx-3 sm-4" alt="..."/>

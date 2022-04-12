@@ -7,7 +7,7 @@ function Profile() {
   return (
     <div>
       <div class="container d-flex justify-content-center align-items-center">
-        <div class="card ">
+        <div class="card sm-4">
           <div class="upper">
             
             <img src={background}  height="80rem"  width="300rem"/> 
