@@ -11,7 +11,7 @@ const usersReducer = (state = initState, action) => {
            
            let userData=action.payload;
            console.log(userData)
-            return {...initState,user:userData}
+            return {user:userData}
 
         case SIGNUP:
             return state;
