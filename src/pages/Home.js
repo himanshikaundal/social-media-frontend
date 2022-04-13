@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Navbar from '../compnents/Navbar';
 import Profile from '../compnents/Profile';
 import Uploadpost from '../compnents/Uploadpost';
-import Suggestion from '../compnents/Suggestion';
 import Feed from '../compnents/Feed';
 
 
