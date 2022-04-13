@@ -16,7 +16,7 @@ function ViewProfile() {
                 alt="..."
               />
 
-              <img src={himanshi}  class="rounded-3 translate-middle-y  sm-4 w-25" alt="..."></img>
+              <img src={himanshi}  class="rounded-3 translate-middle-y  sm-4 w-25" alt="..."/>
             </div>
 
             <div className="row ">
