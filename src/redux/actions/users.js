@@ -1,4 +1,4 @@
-import { LOGIN, SIGNUP } from "../types"
+import { LOGIN, LOGOUT, SIGNUP } from "../types"
 import api from "../../api";
 export const login = (values) => dispatch => {
     api({
@@ -13,6 +13,7 @@ export const login = (values) => dispatch => {
         .then((res) => {
             const result = res.data
             const { token, user } = result.data;
+            // window.localStorage.getItem('token',token)
             dispatch({ type: LOGIN, payload: user })
         }).catch(rej => console.log(rej));
 
@@ -37,4 +38,13 @@ export const signup = (values) => dispatch => {
         }).catch(rej => console.log(rej));
 
 }
+
+export const logout=()=>dispatch=>{
+    
+}
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-import { LOGIN, SIGNUP } from "../types";
+import { LOGIN, LOGOUT, SIGNUP } from "../types";
 
 const initState = {
     user:{},
@@ -12,8 +12,10 @@ const usersReducer = (state = initState, action) => {
         case LOGIN:
             let userData = action.payload;
             return { user: userData }
-        case SIGNUP:
-            return state
+      
+        case LOGOUT:
+            return state.initState=null;
+
 
         default:
             return state;

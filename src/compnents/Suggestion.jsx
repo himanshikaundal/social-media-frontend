@@ -4,7 +4,7 @@ import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 
 
 function Suggestion() {
-  const user= useSelector(state=>state.loginUser)
+  const {user}= useSelector(state=>state.loginUser)
   return (
    <>
     

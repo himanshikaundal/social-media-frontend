@@ -4,12 +4,14 @@ import Navbar from '../compnents/Navbar';
 import Profile from '../compnents/Profile';
 import Uploadpost from '../compnents/Uploadpost';
 import Feed from '../compnents/Feed';
+import Suggestion from '../compnents/Suggestion';
 
 
 const Home = () => {
     return (
 
-        <>            <div className='row   bg-light'>
+        <> 
+         <div className='row   bg-light'>
             <Navbar />
             <div className=' mt-4 offset-sm-1 col-sm-3'>
                 <Profile />

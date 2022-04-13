@@ -1,14 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/images/login/TO_THE_NEW_Logo.jpg'
 import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 
-import { useSelector } from 'react-redux'
-function Navbar() {
-    const {user}  = useSelector(state => state.loginUser)
 
+import { useSelector,useDispatch } from 'react-redux'
+import { logout } from '../redux/actions/users'
+
+function Navbar() {
+    let {user}  = useSelector(state => state.loginUser)
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+   function logouthandler(){
+       dispatch(logout)
+       navigate('/');
+   }
     return (
         <>
+        
             <nav className="navbar  navbar-light bg-light shadow">
                 <div className="container-fluid ">
                     <div>
@@ -29,7 +38,8 @@ function Navbar() {
                         
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger">3 <span class="visually-hidden">unread messages</span></span>
                         </button>
-
+                         
+                         <button type='button' onClick={logouthandler} > logout </button>
                        
 
                     </div>
