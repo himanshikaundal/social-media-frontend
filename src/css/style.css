@@ -1,12 +1,12 @@
 
-.row{
-   height: 100vh;
-  }
-  
+
   .btn-purple{
   background-color: blueviolet;
   }
  
+ ul{
+   list-style: none;
+ }
 
 .nav-img{
   height: 4.2rem;

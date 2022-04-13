@@ -1,6 +1,7 @@
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,11 +17,12 @@ const loginSchema = Yup.object().shape({
 
 const Login = () => {
   const dispatch = useDispatch();
+  let navigate=useNavigate();
 
   return (
     <>
       <div className="container ">
-        <div className="row  align-items-center ">
+        <div className="row vh-100 align-items-center ">
           <div className="d-flex p-5 my-5 h-75 align-items-center  border border-2 rounded-2 shadow ">
             <div className="col-sm-6 ">
               <div className="text-center">
@@ -47,8 +49,11 @@ const Login = () => {
                 }}
                 onSubmit={(values, actions) => {
                   dispatch(login(values));
-                  console.log(values);
+                 navigate('/home');
+                 
                   actions.setSubmitting(true);
+
+                  
                 }}
                 validationSchema={loginSchema}
               >

@@ -1,20 +1,19 @@
-import { LOGIN,SIGNUP } from "../types";
+import { LOGIN, SIGNUP } from "../types";
 
 const initState = {
-user:{a:'hello' }
+    user:{},
+    isLoading: false,
+
 };
 
 const usersReducer = (state = initState, action) => {
 
     switch (action.type) {
         case LOGIN:
-           
-           let userData=action.payload;
-           console.log(userData)
-            return {user:userData}
-
+            let userData = action.payload;
+            return { user: userData }
         case SIGNUP:
-            return state;
+            return state
 
         default:
             return state;

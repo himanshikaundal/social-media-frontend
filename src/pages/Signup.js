@@ -19,8 +19,8 @@ const dispatch=useDispatch()
       .required('Required'),
   });
   return (
-    <div className="container  sm-4 border border-1 rounded-2 shadow  ">
-      <div className="row justify-content-between align-items-center ">
+    <div className="container  sm-4   ">
+      <div className="row vh-100 border border-1 rounded-2 shadow justify-content-between align-items-center ">
         <Formik
           initialValues={{
             name: '',

@@ -1,22 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import himanshi from "../assets/images/nav-img/himanshi.jpeg";
 import background from "../assets/images/nav-img/background.jpg"
-
+import { useSelector } from "react-redux";
 function Profile() {
+  const { user } = useSelector(state => state.loginUser)
   return (
     <>
-      <div className="container">
-        <div class="card w-100" >
-          <img src={background} height='100rem' class="w-100 rounded-3" alt="..." />
-          <div class="profile text-center">
-            <img src={himanshi} class="rounded-circle" width="100rem" />
+      <div className="container sm-4">
+        <div class="card w-100 h-25 sm-4" >
+          <img src={background} height='120rem' class="w-100 rounded-3" alt="..." />
+          <div class="profile text-center sm-4 ">
+            <img src={himanshi} alt='' class="rounded-circle sm-4 translate-middle-y" width="140rem" />
           </div>
-          <div class="card-body text-center  ">
-            <p class="card-text h4">Himanshi Kaundal</p>
+          <div class="card-body text-center translate-middle-y ">
+            <p class="card-text   h4">{user.name}</p>
             <p className="text-muted " > Newly Recruit at TTN </p>
           </div>
-          <div className="d-flex justify-content-evenly py-2">
+          <div className="d-flex justify-content-evenly  py-2">
 
             <div class="stats text-muted text-center">
               <h6 class="mb-0 sm-4">Post Views</h6>

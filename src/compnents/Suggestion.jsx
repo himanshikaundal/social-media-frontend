@@ -1,39 +1,42 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import himanshi from '../assets/images/nav-img/himanshi.jpeg'
+
 
 function Suggestion() {
+  const user= useSelector(state=>state.loginUser)
   return (
-    <div className='container-fluid'>
+   <>
+    
+    <div class="overflow-scroll h-25 rounded-3 border border-2 ">
+      <div>
+        <p>Suggestion</p>
+        <input type="text" className='' />
+      </div>
+               <ul className='px-2 pt-3'>
+                  <li className='pt-2' >  
+                    <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
+                   <span className='px-2'>{user.name}</span>
+                        </li>
+                        <li className='pt-2' >  
+                    <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
+                   <span className='px-2'>{user.name}</span>
+                        </li>
 
-<center> 
-        <div class="container"> 
-  
-            <h3> 
-            To make vertical scrollable
-            in a bootstrap row? 
-        </h3> 
-            <div class="container vertical-scrollable"> 
-                <div class="row text-center"> 
-                    <div class="col-sm-8">
-                      1</div> 
-                    <div class="col-sm-8">
-                      2</div> 
-                    <div class="col-sm-8">
-                      3</div> 
-                    <div class="col-sm-8">
-                      4</div> 
-                    <div class="col-sm-8">
-                      5</div> 
-                    <div class="col-sm-8">
-                      6</div> 
-                    <div class="col-sm-8">
-                      7</div> 
-                </div> 
-            </div> 
-        </div> 
-    </center> 
+                        <li className='pt-2' >  
+                    <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
+                   <span className='px-2'>{user.name}</span>
+                        </li>
+                        
+                        
+                     
+               </ul>
+                   
+                    </div>
+                           
+   
+   </>
 
-
-    </div>
   )
 }
 
