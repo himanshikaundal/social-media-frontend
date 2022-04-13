@@ -7,6 +7,8 @@ import store, { persistor } from "./redux/store";
 import Home from './pages/Home'
 import RequireAuth from "./compnents/RequireAuth";
 import { PersistGate } from "redux-persist/integration/react";
+import ViewProfile from "./pages/ViewProfile";
+import SelfView from "./pages/SelfView";
 
 
 const App = () => {
@@ -20,7 +22,8 @@ const App = () => {
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/home" element={<RequireAuth><Home /> </RequireAuth>} />
-              
+              <Route path='/viewProfile' element={<ViewProfile/>}/>
+              <Route path='/selfView' element={<SelfView/>}/>
             </Routes>
           </BrowserRouter>
         </PersistGate>
