@@ -16,7 +16,7 @@ const Home = () => {
           <Profile />
         </div>
         <div className=" mt-4  col-sm-6">
-          <div className="py-2 mb-3 border sm-4 border-1 rounded">
+          <div className=" mb-3 border sm-4 border-1 ">
         
             <Uploadpost />
           </div>

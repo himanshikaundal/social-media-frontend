@@ -2,8 +2,7 @@ import { LOGIN, LOGOUT, SIGNUP } from "../types";
 
 const initState = {
     user:{},
-    isLoading: false,
-
+   
 };
 
 const usersReducer = (state = initState, action) => {
@@ -14,7 +13,7 @@ const usersReducer = (state = initState, action) => {
             return { user: userData }
       
         case LOGOUT:
-            return state.initState=null;
+            return null;
 
 
         default:
