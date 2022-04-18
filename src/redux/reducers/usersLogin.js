@@ -2,7 +2,8 @@ import { LOGIN, LOGOUT, SIGNUP, UPDATE_PROFILE } from "../types";
 
 const initState = {
     user: {},
-    userid: ''
+    userid: '',
+    token:''
 
 };
 
@@ -10,9 +11,9 @@ const loginReducer = (state = initState, action) => {
 
     switch (action.type) {
         case LOGIN:
-            let userData = action.payload;
-            let id = action.payload._id
-            return { user: userData, userid: id }
+            let userData = action.payload.user;
+            let id = action.payload.user._id;
+            return { user: userData, userid: id, token:action.payload.token }
 
             
 

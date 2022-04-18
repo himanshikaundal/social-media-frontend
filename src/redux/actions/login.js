@@ -14,10 +14,11 @@ export const login = (values) => dispatch => {
         // .then(res=>res.data)
         .then((res) => {
             const result = res.data
+            console.log(res)
             const { token, user } = result.data;
             console.log(user)
          
-            dispatch({ type: LOGIN, payload: user })
+            dispatch({ type: LOGIN, payload: {user,token }})
         }).catch(rej => console.log(rej))
 
     }

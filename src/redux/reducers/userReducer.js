@@ -1,9 +1,10 @@
-import { SIGNUP,UPDATE_PROFILE } from "../types";
+import { SIGNUP,UPDATE_PROFILE ,CHANGE_PASSWORD} from "../types";
 
 const initialstate={
     user:{},
     userid:'',
-    sigup:true
+    sigup:true,
+    message:''
    
 }
 
@@ -15,9 +16,12 @@ const userReducer=(state=initialstate,action)=>{
            
             return {user:action.payload}
      
-    
-            default:
-                return state
+        case CHANGE_PASSWORD:
+            return {message:action.payload}
+
+
+        default:
+            return state
 
     }
 
