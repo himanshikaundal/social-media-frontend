@@ -1,13 +1,14 @@
 import { Field, Formik } from "formik";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
 
 import background from "../assets/images/nav-img/background.jpg";
 import himanshi from "../assets/images/nav-img/himanshi.jpeg";
-import { selfView } from "../redux/actions/users";
+import {selfView}  from "../redux/actions/selfView";
+
 
 function SelfView() {
-  const user = useSelector(state=>state.loginUser)
+  const dispatch = useDispatch();
   function handleSubmit(e) {}
   return (
     <div className="container">

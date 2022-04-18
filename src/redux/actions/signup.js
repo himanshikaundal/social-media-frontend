@@ -16,7 +16,7 @@ export const signup = (values) => dispatch => {
       .then((res) => {
           const result = res.data
           console.log(result);
-          dispatch({ type: SIGNUP, payload: result })
+          //dispatch({ type: SIGNUP, payload: result })
       }).catch(rej => console.log(rej));
 
 }
