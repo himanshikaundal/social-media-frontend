@@ -18,9 +18,11 @@ const loginSchema = Yup.object().shape({
 
 const Login = () => {
   const dispatch = useDispatch();
+  const user=useSelector(state=>state.user)
+  console.log(user)
 
 
-  let navigate=useNavigate();
+  let navigate = useNavigate();
 
   return (
     <>
@@ -51,13 +53,13 @@ const Login = () => {
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
-                 
+
                   dispatch(login(values));
-                 navigate('/home');
-                 
+                  navigate('/home');
+
                   actions.setSubmitting(true);
 
-                  
+
                 }}
                 validationSchema={loginSchema}
               >
@@ -96,17 +98,15 @@ const Login = () => {
                     </div>
                     <div className="d-flex justify-content-between">
                       <div>
-                        <Field
-                          type="checkbox"
-                          className="form-check-input"
-                          id="exampleCheck1"
-                        />
+                        <Link to='/signup'>
+                                        
                         <label
-                          className="form-check-label"
+                          className=""
                           htmlFor="exampleCheck1"
                         >
-                          remember me ?
+                          signup
                         </label>
+                        </Link>
                       </div>
 
                       <div>

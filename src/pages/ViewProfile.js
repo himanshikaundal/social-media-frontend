@@ -4,7 +4,7 @@ import background from "../assets/images/nav-img/background.jpg";
 import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 
 function ViewProfile() {
-  const {user}=useSelector(state=>state.loginUser)
+  const { user } = useSelector(state => state.loginUser)
 
   return (
     <>
@@ -19,7 +19,7 @@ function ViewProfile() {
                 alt="..."
               />
 
-              <img src={himanshi}  class="rounded-3 translate-middle-y  sm-4 w-25" alt="..."/>
+              <img src={himanshi} class="rounded-3 translate-middle-y  sm-4 w-25" alt="..." />
             </div>
 
             <div className="row ">
