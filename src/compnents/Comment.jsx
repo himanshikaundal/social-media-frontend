@@ -3,8 +3,11 @@ import { useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 function Comment() {
 const{user}=useSelector(state=>state.loginUser);
+
 const[state,setstate]=useState({});
+
 const dispatch=useDispatch();
+
 function handleChange(e){
 setstate([{state:e.target.value}]);
 
@@ -12,8 +15,7 @@ setstate([{state:e.target.value}]);
 
 function handelSubmit(e){
     let values={
-        comment:state,
-        
+        comment:state,    
     }
     
     dispatch()
