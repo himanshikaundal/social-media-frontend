@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/users";
+import { login } from "../redux/actions/login";
 
 
 const loginSchema = Yup.object().shape({

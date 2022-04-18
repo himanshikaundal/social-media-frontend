@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Formik, Field } from "formik";
 import * as Yup from 'yup';
 import logo from '../assets/images/login/TO_THE_NEW_Logo.jpg';
-import { signup } from "../redux/actions/users";
+import { signup } from "../redux/actions/signUp";
 import { useDispatch } from "react-redux";
 
 const Signup = () => {

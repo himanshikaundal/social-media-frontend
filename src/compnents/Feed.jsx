@@ -63,7 +63,7 @@ const {user}=useSelector(state=>state.loginUser)
                         <img src={himanshi} width='55rem' height='55rem' class="rounded-circle sm-4" alt="..." />
                     </div>
 
-                    <input type='text' width='50rem' placeholder='Write a comment......' className='rounded-pill  opacity-75 px-2 border border-2 sm-4 w-100' />
+                    <input type='text' width='50rem' name='comment' placeholder='Write a comment......' className='rounded-pill  opacity-75 px-2 border border-2 sm-4 w-100' />
 
                 </div>
 

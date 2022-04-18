@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import background from "../assets/images/nav-img/background.jpg";
 import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 
 function ViewProfile() {
+  const {user}=useSelector(state=>state.loginUser)
+
   return (
     <>
       <div className="container pt-5 d-flex">
@@ -21,8 +24,8 @@ function ViewProfile() {
 
             <div className="row ">
               <div>
-                <h2>Himanshi Kaundal</h2>
-                <p>Himanshi is inter'2022 @To The New </p>
+                <h2>{user.name}</h2>
+                <p>{`${user.name} is inter'2022 @To The New`} </p>
               </div>
               <div className="py-4 ">
                 <ul class="list-group list-group-horizontal list-group-flush">

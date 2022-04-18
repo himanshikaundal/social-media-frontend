@@ -43,10 +43,7 @@ function SelfView() {
                     <div className="pb-3">
                       <input type="text" id="state" name="state" placeholder="state"/>
                     </div>
-                    
-
-
-                    
+                   
                     
                   </div>
                   <div className="right text-muted px-5">

@@ -5,7 +5,7 @@ import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 
 
 import { useSelector,useDispatch } from 'react-redux'
-import { logout } from '../redux/actions/users'
+import { logout } from '../redux/actions/login'
 import { useEffect } from 'react'
 
 function Navbar() {
@@ -16,7 +16,7 @@ function Navbar() {
    function logouthandler(){
    
       dispatch(logout());
-      localStorage.clear();
+    //   localStorage.clear();
        navigate('/');
    }
     return (
