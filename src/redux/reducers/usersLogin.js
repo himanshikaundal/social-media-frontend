@@ -1,20 +1,24 @@
-import { LOGIN, LOGOUT, SIGNUP } from "../types";
+import { LOGIN, LOGOUT, SIGNUP, UPDATE_PROFILE } from "../types";
 
 const initState = {
-    user:{},
-    isLoading: false,
+    user: {},
+    userid: ''
 
 };
 
-const usersReducer = (state = initState, action) => {
+const loginReducer = (state = initState, action) => {
 
     switch (action.type) {
         case LOGIN:
             let userData = action.payload;
-            return { user: userData }
-      
+            let id = action.payload._id
+            return { user: userData, userid: id }
+
+            
+
         case LOGOUT:
-            return {user:null};
+
+            return null;
 
 
         default:
@@ -22,4 +26,4 @@ const usersReducer = (state = initState, action) => {
     }
 };
 
-export default usersReducer;
+export default loginReducer;

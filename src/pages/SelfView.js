@@ -1,21 +1,26 @@
 import { Field, Formik } from "formik";
 import React from "react";
-import { useSelector , useDispatch} from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+// import { signup } from '../redux/actions/'
 import background from "../assets/images/nav-img/background.jpg";
 import himanshi from "../assets/images/nav-img/himanshi.jpeg";
-import {selfView}  from "../redux/actions/selfView";
-
+import { selfView } from "../redux/actions/selfview";
 
 function SelfView() {
+  // const user = useSelector(state=>state.loginUser);
   const dispatch = useDispatch();
-  function handleSubmit(e) {}
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-sm-8">
           <div className="row">
-            <img src={background} height="200px" class=" rounded-3" alt="no image uploaded" />
+            <img
+              src={background}
+              height="200px"
+              class=" rounded-3"
+              alt="no image uploaded"
+            />
 
             <img
               src={himanshi}
@@ -37,11 +42,9 @@ function SelfView() {
                   city: "",
                   website: "",
                   bday: "",
-                  headline:""
-                
+                  headline: "",
                 }}
                 onSubmit={(values, actions) => {
-                  
                   actions.resetForm();
                   //actions.submitForm()
                   dispatch(selfView(values));
@@ -118,7 +121,7 @@ function SelfView() {
                             />{" "}
                             Male
                           </label>
-                        </div> 
+                        </div>
                         {/* <Field name="Gender" component="select">
                           <option name="gender"value={props.values.male}>Male</option>
 

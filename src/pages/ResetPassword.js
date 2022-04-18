@@ -4,7 +4,7 @@ import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/users";
+import { login } from "../redux/actions/login";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),

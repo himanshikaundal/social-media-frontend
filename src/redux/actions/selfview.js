@@ -1,4 +1,4 @@
-import { SETPROFILE } from "../types";
+import { SET_PROFILE } from "../types";
 import api from "../../api";
 
 export const selfView = function (values) {
@@ -23,7 +23,7 @@ export const selfView = function (values) {
         const result = res.data;
         const { token, user } = result.data;
         // window.localStorage.getItem('token',token)
-        dispatch({ type: SETPROFILE, payload: user })
+        dispatch({ type: SET_PROFILE, payload: user })
       })
       .catch((rej) => console.log(rej));
   };

@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/users";
+import { login } from "../redux/actions/login";
+
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -17,7 +18,11 @@ const loginSchema = Yup.object().shape({
 
 const Login = () => {
   const dispatch = useDispatch();
-  let navigate=useNavigate();
+  const user=useSelector(state=>state.user)
+  console.log(user)
+
+
+  let navigate = useNavigate();
 
   return (
     <>
@@ -48,12 +53,13 @@ const Login = () => {
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
+
                   dispatch(login(values));
-                 navigate('/home');
-                 
+                  navigate('/home');
+
                   actions.setSubmitting(true);
 
-                  
+
                 }}
                 validationSchema={loginSchema}
               >
@@ -92,17 +98,15 @@ const Login = () => {
                     </div>
                     <div className="d-flex justify-content-between">
                       <div>
-                        <Field
-                          type="checkbox"
-                          className="form-check-input"
-                          id="exampleCheck1"
-                        />
+                        <Link to='/signup'>
+                                        
                         <label
-                          className="form-check-label"
+                          className=""
                           htmlFor="exampleCheck1"
                         >
-                          remember me ?
+                          signup
                         </label>
+                        </Link>
                       </div>
 
                       <div>

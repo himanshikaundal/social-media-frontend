@@ -9,15 +9,15 @@ import Suggestion from "../compnents/Suggestion";
 const Home = () => {
   return (
     <>
-   
+
       <div className="row   bg-light">
         <Navbar />
         <div className=" mt-4 offset-sm-1 col-sm-3">
           <Profile />
         </div>
         <div className=" mt-4  col-sm-6">
-          <div className="py-2 mb-3 border sm-4 border-1 rounded">
-        
+          <div className=" mb-3 border sm-4 border-1 ">
+
             <Uploadpost />
           </div>
           <div className="pt-3">

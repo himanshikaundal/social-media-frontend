@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import { Formik, Field } from "formik";
 import * as Yup from 'yup';
 import logo from '../assets/images/login/TO_THE_NEW_Logo.jpg';
-import {signup}  from "../redux/actions/signup";
-
+import { signup } from "../redux/actions/signup";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
-
-const dispatch=useDispatch()
+function Signup() {
+const navigate=useNavigate();
+  const dispatch = useDispatch()
+ 
 
   const loginSchema = Yup.object().shape({
     name: Yup.string().min(5, 'Too Short!').required('Required'),
@@ -33,15 +34,16 @@ const dispatch=useDispatch()
             dispatch(signup(values));
             console.log(values)
             actions.setSubmitting(false);
+            navigate('/');
           }}
           validationSchema={loginSchema}
         >
 
           {props => (
             <form className="offset-sm-4  col-sm-5" onSubmit={props.handleSubmit}>
-             <div className="text-center">
-             <img src={logo} alt="" className="w-75 " />
-             </div>
+              <div className="text-center">
+                <img src={logo} alt="" className="w-75 " />
+              </div>
 
               <div className='sm-4 h3 text-center'>
                 Signup

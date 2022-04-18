@@ -14,9 +14,13 @@ export const signup = (values) => dispatch => {
       }
   })
       .then((res) => {
-          const result = res.data
+          const result = res.data;
           console.log(result);
-          //dispatch({ type: SIGNUP, payload: result })
-      }).catch(rej => console.log(rej));
+         const{message}=result;
+          console.log(message);
+          dispatch({ type: SIGNUP, payload:{result:result,message:message} })
+      })
+      .catch((res)=>dispatch({type:SIGNUP,payload:{result:null,message:res.message}}));
+       
+    };
 
-}
