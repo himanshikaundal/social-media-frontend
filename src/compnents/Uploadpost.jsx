@@ -5,8 +5,9 @@ import himanshi from "../assets/images/nav-img/himanshi.jpeg";
 function Uploadpost() {
   const dispatch= useDispatch();
 
-  function submithandler(){
-
+  function submithandler(e){
+   
+    dispatch()
   }
   
 
