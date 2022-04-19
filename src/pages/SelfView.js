@@ -85,11 +85,7 @@ function SelfView() {
                               name="female"
                               id="female"
                               //autocomplete="off"
-<<<<<<< HEAD
                               value='female'
-=======
-                              value="female"
->>>>>>> 7032be9369cd76cea976cb7c3aa73a339c1417cf
                             />{" "}
                             Female
                           </label>
@@ -99,11 +95,7 @@ function SelfView() {
                               name="gender"
                               id="male"
                               //autocomplete="off"
-<<<<<<< HEAD
                               value='male'
-=======
-                              value="male"
->>>>>>> 7032be9369cd76cea976cb7c3aa73a339c1417cf
                             />{" "}
                             Male
                           </label>
