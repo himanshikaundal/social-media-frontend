@@ -1,13 +1,12 @@
 import { Field, Formik } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { signup } from '../redux/actions/'
 import background from "../assets/images/nav-img/background.jpg";
 import himanshi from "../assets/images/nav-img/himanshi.jpeg";
 import { selfView } from "../redux/actions/selfview";
 
 function SelfView() {
-  // const user = useSelector(state=>state.loginUser);
+  const {userid} = useSelector(state=>state.loginUser);
   const dispatch = useDispatch();
 
   return (
@@ -38,6 +37,7 @@ function SelfView() {
                   email: "",
                   gender: "",
                   state: "",
+                  headline:"",
                   country: "",
                   city: "",
                   website: "",
@@ -47,7 +47,7 @@ function SelfView() {
                 onSubmit={(values, actions) => {
                   actions.resetForm();
                   //actions.submitForm()
-                  dispatch(selfView(values));
+                  dispatch(selfView(values,userid));
                   //navigate("/home");
                   console.log(values);
                   actions.setSubmitting(true);
@@ -74,59 +74,32 @@ function SelfView() {
                         <label htmlFor="gender" id="gender">
                           Gender
                         </label>
-                        {/* <div className="pb-2 mb-2 border border-2">
-                          <button
-                            type="button"
-                            name="gender"
-                            id="female"
-                            class="btn btn-primary btn-sm px-4 mx-2"
-                            //value={props.values.female}
-                            onClick={props.values.female}
-                          >
-                            Female
-                          </button>
-                          <button
-                            type="button"
-                            name="gender"
-                            id="male"
-                            class="btn btn-sm px-4"
-                            //value={props.values.male}
-                            onClick={props.values.male}
-                          >
-                            Male
-                          </button>
-                        </div> */}
 
                         <div
                           class="btn-group btn-group-toggle "
                           data-toggle="buttons"
                         >
                           <label class="btn btn-secondary">
-                            <input
+                            <Field
                               type="radio"
                               name="gender"
                               id="female"
                               //autocomplete="off"
-                              value={props.values.female}
+                              value="female"
                             />{" "}
                             Female
                           </label>
                           <label class="btn btn-secondary">
-                            <input
+                            <Field
                               type="radio"
                               name="gender"
                               id="male"
                               //autocomplete="off"
-                              value={props.values.male}
+                              value="male"
                             />{" "}
                             Male
                           </label>
                         </div>
-                        {/* <Field name="Gender" component="select">
-                          <option name="gender"value={props.values.male}>Male</option>
-
-                          <option name="female"value={props.values.female}>Female</option>
-                        </Field> */}
 
                         <label htmlFor="country" id="country">
                           Country
@@ -151,6 +124,19 @@ function SelfView() {
                             name="state"
                             value={props.values.state}
                             placeholder="state"
+                          />
+                        </div>
+
+                        <label htmlFor="state" id="state">
+                          headline
+                        </label>
+                        <div className="pb-3">
+                          <Field
+                            type="text"
+                            id="headline"
+                            name="headline"
+                            value={props.values.headline}
+                            placeholder="headline"
                           />
                         </div>
                       </div>
