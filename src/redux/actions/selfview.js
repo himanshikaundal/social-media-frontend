@@ -1,11 +1,12 @@
 import { SET_PROFILE } from "../types";
 import api from "../../api";
 
-export const selfView = function (values) {
+export const selfView = function (values,userid) {
+
   return function (dispatch) {
     api({
       method: "put",
-      url: "/editProfile",
+      url: `/editProfile/${userid}`,
       data: {
         name: values.name,
         email: values.email,
@@ -14,9 +15,10 @@ export const selfView = function (values) {
         country: values.country,
         city: values.city,
         website: values.website,
-        bday: values.bday,
+        dob: values.bday,
         headline: values.headline,
       },
+      
     })
       // .then(res=>res.data)
       .then((res) => {
