@@ -10,6 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import ViewProfile from "./pages/ViewProfile";
 import SelfView from "./pages/SelfView";
 import ChangePassword from "./pages/ChangePassword";
+import Uploadpost from "./compnents/Uploadpost";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
               <Route path='/viewProfile' element={<ViewProfile/>}/>
               <Route path='/selfView' element={<SelfView/>}/>
               <Route path="/change-password" element={<ChangePassword/>} ></Route>
+              <Route path="/feeds" element={<Uploadpost/>} ></Route> 
             </Routes>
           </BrowserRouter>
         </PersistGate>

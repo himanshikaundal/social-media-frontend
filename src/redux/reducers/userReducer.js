@@ -18,7 +18,7 @@ const userReducer=(state=initialstate,action)=>{
      
         case CHANGE_PASSWORD:
             return {message:action.payload}
-
+         
 
         default:
             return state

@@ -7,6 +7,7 @@ import garden from '../assets/images/nav-img/lovegarden.jpg'
 
 function Feed() {
 const {user}=useSelector(state=>state.loginUser)
+// const{content}=useSelector(state=>state.addFeed);
     return (
         <>
             <div className="card border border-1  p-4">

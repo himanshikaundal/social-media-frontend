@@ -11,6 +11,7 @@ function Suggestion() {
     <div class="overflow-scroll h-25 rounded-3 border border-2 ">
       <div>
         <p>Suggestion</p>
+      
         <input type="text" className='' />
       </div>
                <ul className='px-2 pt-3'>

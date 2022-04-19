@@ -36,7 +36,7 @@ function SelfView() {
                 initialValues={{
                   name: "",
                   email: "",
-                  gender: "",
+                  gender: '',
                   state: "",
                   country: "",
                   city: "",
@@ -52,7 +52,7 @@ function SelfView() {
                   console.log(values);
                   actions.setSubmitting(true);
                 }}
-                // validationSchema={loginSchema}
+              // validationSchema={loginSchema}
               >
                 {(props) => (
                   <form onSubmit={props.handleSubmit}>
@@ -102,22 +102,22 @@ function SelfView() {
                           data-toggle="buttons"
                         >
                           <label class="btn btn-secondary">
-                            <input
+                            <Field
                               type="radio"
-                              name="gender"
+                              name="female"
                               id="female"
                               //autocomplete="off"
-                              value={props.values.female}
+                              value='female'
                             />{" "}
                             Female
                           </label>
                           <label class="btn btn-secondary">
-                            <input
+                            <Field
                               type="radio"
                               name="gender"
                               id="male"
                               //autocomplete="off"
-                              value={props.values.male}
+                              value='male'
                             />{" "}
                             Male
                           </label>

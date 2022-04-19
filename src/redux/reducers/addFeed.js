@@ -1,5 +1,8 @@
 
-initialstate={
+import { ADD_FEED } from "../types";
+
+const initialstate={
+    content:'',
     feed_id:'',
     user_id:''
 }
@@ -8,9 +11,16 @@ initialstate={
 const feedReducer=(state=initialstate,action)=>{
 
     switch(action.type){
-        case 'ADD_FEDD':
-            
-            
+        case ADD_FEED:
+            let content=action.payload;
+            console.log(content);
+            return {content:content}
+
+            default:
+                return state;
+       
     }
 
 }
+
+export default feedReducer

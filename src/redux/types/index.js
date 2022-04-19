@@ -10,3 +10,4 @@ export const SET_PROFILE="SET_PROFILE"
 export const ADD_FEED='ADD_FEED';
 export const GET_FEED='GET_FEED'
 
+export const SEARCH_USER='SEARCH_USER'
