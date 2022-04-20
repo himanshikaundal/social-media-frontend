@@ -16,11 +16,14 @@ export const signup = (values) => dispatch => {
       .then((res) => {
           const result = res.data;
           console.log(result);
-         const{message}=result;
-          console.log(message);
-          dispatch({ type: SIGNUP, payload:{result:result,message:message} })
+         
+          dispatch({ type: SIGNUP, payload:result.data})
       })
-      .catch((res)=>dispatch({type:SIGNUP,payload:{result:null,message:res.message}}));
+      .catch((error)=>{
+     dispatch({type:SIGNUP,payload:error.response.data.data,message:error.response.data.message})
+
+      } )
+         
        
-    };
+    }
 

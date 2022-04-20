@@ -7,12 +7,13 @@ export const uploadPost = (values, token) => (dispatch) => {
         method: 'post',
         url: '/feeds',
         data: {
-            content: values
+            content:values
         },
-        headers: { authorization: `Bearer ${token}` }
+        headers:{ authorization:`Bearer ${token}` }
     }).then((res) => {
         const result = res.data;
-        console.log(result);
-        dispatch({ type: ADD_FEED, payload: result })
+      
+        dispatch({ type: ADD_FEED, payload:result.data })
+
     }).catch((err) => console.log(err))
 }

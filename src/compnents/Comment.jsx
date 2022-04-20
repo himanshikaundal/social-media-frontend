@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from 'react-redux'
 function Comment() {
 const{user}=useSelector(state=>state.loginUser);
 
-const[state,setstate]=useState({});
+const[state,setstate]=useState('');
 
 const dispatch=useDispatch();
 

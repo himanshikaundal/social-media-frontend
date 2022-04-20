@@ -5,12 +5,22 @@ import logo from '../assets/images/login/TO_THE_NEW_Logo.jpg';
 import { signup } from "../redux/actions/signup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Signup() {
-const navigate=useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch()
- 
+  const { user, message } = useSelector(state => state.user)
+  console.log(user, message);
 
+
+  useEffect(()=>{
+    if (user !== null) {
+      navigate('/');
+    }
+  
+  },[message])
+  
   const loginSchema = Yup.object().shape({
     name: Yup.string().min(5, 'Too Short!').required('Required'),
     username: Yup.string().min(5, 'Too Short!').required('Required'),
@@ -31,10 +41,13 @@ const navigate=useNavigate();
             password: ''
           }}
           onSubmit={(values, actions) => {
+
+            actions.setSubmitting(true)
             dispatch(signup(values));
-            console.log(values)
+          
+
             actions.setSubmitting(false);
-            navigate('/');
+
           }}
           validationSchema={loginSchema}
         >
@@ -94,6 +107,7 @@ const navigate=useNavigate();
 
           )}
         </Formik>
+        {/* {!user &&{message} } */}
 
       </div>
 

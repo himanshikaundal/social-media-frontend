@@ -11,6 +11,7 @@ import ViewProfile from "./pages/ViewProfile";
 import SelfView from "./pages/SelfView";
 import ChangePassword from "./pages/ChangePassword";
 import Uploadpost from "./compnents/Uploadpost";
+import ForgetPassword from "./pages/ForgetPassword";
 
 
 const App = () => {
@@ -27,7 +28,9 @@ const App = () => {
               <Route path='/viewProfile' element={<ViewProfile/>}/>
               <Route path='/selfView' element={<SelfView/>}/>
               <Route path="/change-password" element={<ChangePassword/>} ></Route>
-              <Route path="/feeds" element={<Uploadpost/>} ></Route> 
+              <Route path="/feeds" element={<Uploadpost/>} ></Route>
+              <Route path="/forget-password" element={<ForgetPassword/>} ></Route> 
+              
             </Routes>
           </BrowserRouter>
         </PersistGate>

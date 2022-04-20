@@ -1,7 +1,7 @@
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,11 +18,7 @@ const loginSchema = Yup.object().shape({
 
 const Login = () => {
   const dispatch = useDispatch();
-  const user=useSelector(state=>state.user)
-  console.log(user)
-
-
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -53,11 +49,14 @@ const Login = () => {
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
+                  actions.setSubmitting(true);
 
                   dispatch(login(values));
+
                   navigate('/home');
 
-                  actions.setSubmitting(true);
+                  actions.setSubmitting(false)
+                  actions.resetForm()
 
 
                 }}
@@ -99,18 +98,18 @@ const Login = () => {
                     <div className="d-flex justify-content-between">
                       <div>
                         <Link to='/signup'>
-                                        
-                        <label
-                          className=""
-                          htmlFor="exampleCheck1"
-                        >
-                          signup
-                        </label>
+
+                          <label
+                            className=""
+                            htmlFor="exampleCheck1"
+                          >
+                            signup
+                          </label>
                         </Link>
                       </div>
 
                       <div>
-                        <Link to="/Signup">Forgot password</Link>
+                        <Link to="/forget-password">Forgot password</Link>
                       </div>
                     </div>
                     <div className="sm-4 text-center py-2">
