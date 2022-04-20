@@ -5,7 +5,9 @@ import { useNavigate, Navigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/login";
+import { googleLogin, login } from "../redux/actions/login";
+import GoogleLogin from "react-google-login";
+import api from "../api";
 
 
 const loginSchema = Yup.object().shape({
@@ -16,9 +18,26 @@ const loginSchema = Yup.object().shape({
     .required("Required"),
 });
 
+
+
 const Login = () => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  function responsesuccess(response){
+dispatch(googleLogin(response));
+// if(response){
+// navigate('/home');
+// }
+  }
+
+
+  function responsefailure(response){
+    
+  }
+
+ 
 
   return (
     <>
@@ -36,9 +55,21 @@ const Login = () => {
                 Don't stop until you're proud
               </div>
               <div className="p-3 text-center">
-                <button className="py-3 px-4 border border-danger border-1 text-danger rounded-pill ">
+                <GoogleLogin
+                  clientId="1063994885267-fqtfvile5mkkl8vl9gkv15tvjqp45hkf.apps.googleusercontent.com"
+                  render={renderProps => (
+                    <button  onClick={renderProps.onClick} disabled={renderProps.disabled} className="py-3 px-4 border border-danger border-1 text-danger rounded-pill ">
                   sign in with google
                 </button>
+                  )}
+                  buttonText="Login"
+                  onSuccess={responsesuccess}
+                  onFailure={responsefailure}
+                 
+                  cookiePolicy={'single_host_origin'}
+                />
+
+                
               </div>
             </div>
 

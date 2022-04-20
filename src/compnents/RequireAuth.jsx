@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const RequireAuth = ({ children }) => {
   const require = useSelector(state => state.loginUser);
+  
 
   let location = useLocation();
 
@@ -15,6 +16,7 @@ const RequireAuth = ({ children }) => {
     // than dropping them off on the home page.
 
     return <Navigate to="/" state={{ from: location }} replace />;
+  
   }
 
   return children;

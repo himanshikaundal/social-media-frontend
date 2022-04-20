@@ -1,5 +1,27 @@
-import { LOGIN, LOGOUT } from "../types"
+import { GOOGLE_LOGIN, LOGIN, LOGOUT } from "../types"
 import api from "../../api";
+
+
+
+export const googleLogin=(values)=>dispatch=>{
+
+api({
+  method:'post',
+  url:'/google-login',
+  data:{
+    token:values.tokenId
+  }
+}).then(res=>{
+    const result = res.data
+    console.log(res)
+    const { token, user } = result.data;
+    console.log(user)
+ 
+    dispatch({ type:GOOGLE_LOGIN, payload: {user,token }})
+ 
+}).catch(rej=>console.log(rej));
+}
+
 
 
 export const login = (values) => dispatch => {
