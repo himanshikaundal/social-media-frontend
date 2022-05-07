@@ -22,7 +22,7 @@ const loginReducer = (state = initState, action) => {
 
         case LOGOUT:
 
-            return null;
+            return {user:null};
 
 
         default:

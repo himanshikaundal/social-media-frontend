@@ -1,4 +1,4 @@
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Login from "./pages/Login";
@@ -24,7 +24,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/home" element={<RequireAuth><Home /> </RequireAuth>} />
+              <Route path="/home" element={<RequireAuth> <Home /> </RequireAuth>} />
               <Route path='/viewProfile' element={<ViewProfile/>}/>
               <Route path='/selfView' element={<SelfView/>}/>
               <Route path="/change-password" element={<ChangePassword/>} ></Route>

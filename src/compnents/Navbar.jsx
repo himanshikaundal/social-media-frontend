@@ -32,7 +32,7 @@ function Navbar() {
                     </div>
 
                     <div>
-                        <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
+                      <Link to='/selfView'> <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img> </Link>
                         <span >{user.name}</span>
 
 

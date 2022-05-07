@@ -5,8 +5,14 @@ import Profile from "../compnents/Profile";
 import Uploadpost from "../compnents/Uploadpost";
 import Feed from "../compnents/Feed";
 import Suggestion from "../compnents/Suggestion";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const feed = useSelector(state => state.feed);
+  const feeds = feed.post;
+
+
+
   return (
     <>
 
@@ -20,12 +26,16 @@ const Home = () => {
 
             <Uploadpost />
           </div>
-          <div className="pt-3">
-            <Feed />
-          </div>
-          <div className="pt-3">
-            <Feed />
-          </div>
+          {feeds.map((element) => {
+
+            return (<div className="pt-3" key={element._id}>
+              <Feed createdby={element.createby} content={element.content} media={element.media.map(element => {
+                return element.url
+              })} />
+            </div>)
+          })}
+
+
         </div>
         <div className="col-sm-2 mt-4 px-4">
           <Suggestion />

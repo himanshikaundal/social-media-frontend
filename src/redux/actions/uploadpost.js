@@ -2,18 +2,18 @@ import api from "../../api";
 import { ADD_FEED } from "../types";
 
 
-export const uploadPost = (values, token) => (dispatch) => {
+export const uploadPost = (data, token) => (dispatch) => {
     api({
         method: 'post',
         url: '/feeds',
-        data: {
-            content:values
-        },
-        headers:{ authorization:`Bearer ${token}` }
+        data:data,
+        headers: {
+            authorization: `Bearer ${token}`
+        }
     }).then((res) => {
         const result = res.data;
-      
-        dispatch({ type: ADD_FEED, payload:result.data })
+        console.log(result);
+        dispatch({ type: ADD_FEED })
 
     }).catch((err) => console.log(err))
 }

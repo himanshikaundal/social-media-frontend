@@ -8,7 +8,7 @@ function Suggestion() {
   return (
    <>
     
-    <div class="overflow-scroll h-25 rounded-3 border border-2 ">
+    <div class="overflow-scroll vh-25 rounded-3 border border-2 ">
       <div>
         <p>Suggestion</p>
       
@@ -24,6 +24,10 @@ function Suggestion() {
                    <span className='px-2'>{user.name}</span>
                         </li>
 
+                        <li className='pt-2' >  
+                    <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
+                   <span className='px-2'>{user.name}</span>
+                        </li>
                         <li className='pt-2' >  
                     <img src={himanshi} width='55rem' class="rounded-circle  sm-4" alt="..."></img>
                    <span className='px-2'>{user.name}</span>

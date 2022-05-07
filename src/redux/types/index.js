@@ -13,3 +13,5 @@ export const GET_FEED='GET_FEED';
 export const SEARCH_USER='SEARCH_USER';
 
 export const GOOGLE_LOGIN='GOOGLE_LOGIN';
+
+export const COMMENT='COMMENT';

@@ -1,13 +1,14 @@
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { googleLogin, login } from "../redux/actions/login";
 import GoogleLogin from "react-google-login";
-import api from "../api";
+import { getPost } from "../redux/actions/getFeeds";
+
 
 
 const loginSchema = Yup.object().shape({
@@ -25,19 +26,19 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function responsesuccess(response){
-dispatch(googleLogin(response));
-// if(response){
-// navigate('/home');
-// }
+  function responsesuccess(response) {
+    dispatch(googleLogin(response));
+    dispatch(getPost());
+    navigate('/home');
+
   }
 
 
-  function responsefailure(response){
-    
+  function responsefailure(response) {
+
   }
 
- 
+
 
   return (
     <>
@@ -58,18 +59,18 @@ dispatch(googleLogin(response));
                 <GoogleLogin
                   clientId="1063994885267-fqtfvile5mkkl8vl9gkv15tvjqp45hkf.apps.googleusercontent.com"
                   render={renderProps => (
-                    <button  onClick={renderProps.onClick} disabled={renderProps.disabled} className="py-3 px-4 border border-danger border-1 text-danger rounded-pill ">
-                  sign in with google
-                </button>
+                    <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="py-3 px-4 border border-danger border-1 text-danger rounded-pill ">
+                      sign in with google
+                    </button>
                   )}
                   buttonText="Login"
                   onSuccess={responsesuccess}
                   onFailure={responsefailure}
-                 
+
                   cookiePolicy={'single_host_origin'}
                 />
 
-                
+
               </div>
             </div>
 
@@ -83,11 +84,9 @@ dispatch(googleLogin(response));
                   actions.setSubmitting(true);
 
                   dispatch(login(values));
-
-                  navigate('/home');
-
+                  dispatch(getPost());
                   actions.setSubmitting(false)
-                  actions.resetForm()
+                  navigate('/home');
 
 
                 }}

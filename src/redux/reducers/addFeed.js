@@ -1,24 +1,26 @@
 
-import { ADD_FEED } from "../types";
+import { ADD_FEED, COMMENT, GET_FEED } from "../types";
 
-const initialstate={
-    content:{},
-    feed_id:'',
-    user_id:''
+const initialstate = {
+    post:[],
+    comment:''
 }
 
 
-const feedReducer=(state=initialstate,action)=>{
+const feedReducer = (state = initialstate, action) => {
 
-    switch(action.type){
-        case ADD_FEED:
-            let content=action.payload;
-           
-            return {content:content}
+    switch (action.type) {
+      
+        case GET_FEED:
+            let feed = action.payload;
+            return { post: feed }
 
-            default:
-                return state;
-       
+        case COMMENT:
+            return { comment: action.payload };
+
+        default:
+            return state;
+
     }
 
 }

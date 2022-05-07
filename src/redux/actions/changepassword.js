@@ -10,7 +10,7 @@ export const changepassword = (values, token) => (dispatch) => {
       newPassword: values.new_Password,
       confirmPassword: values.confirm_Password,
     },
-    headers: { authorization: `Bearer ${token} ` },
+    headers: { authorization: `Bearer ${token} `},
   })
     .then((res) => {
       const result = res.data;
