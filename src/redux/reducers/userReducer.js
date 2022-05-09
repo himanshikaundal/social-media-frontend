@@ -1,4 +1,4 @@
-import { SIGNUP,UPDATE_PROFILE ,CHANGE_PASSWORD} from "../types";
+import { SIGNUP,UPDATE_PROFILE ,CHANGE_PASSWORD, SIGNUP_ERROR} from "../types";
 
 const initialstate={
     user:{},
@@ -12,13 +12,13 @@ const initialstate={
 const userReducer=(state=initialstate,action)=>{
     switch(action.type){
         case SIGNUP:
-            // const user=action.payload;
-            
-            // if(user){
-            //     return {user:action.payload}
-            // }
            
             return {user:action.payload,message:action.message}
+
+            case SIGNUP_ERROR:
+                console.log(action.payload)
+                return{message:action.payload,user:null}
+
      
         case CHANGE_PASSWORD:
             return {message:action.payload}

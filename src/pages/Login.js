@@ -4,7 +4,7 @@ import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
 import { useNavigate} from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { googleLogin, login } from "../redux/actions/login";
 import GoogleLogin from "react-google-login";
 import { getPost } from "../redux/actions/getFeeds";
@@ -22,6 +22,8 @@ const loginSchema = Yup.object().shape({
 
 
 const Login = () => {
+  const user=useSelector(state=>state.loginUser);
+  console.log(user.message);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,6 +34,8 @@ const Login = () => {
     navigate('/home');
 
   }
+
+
 
 
   function responsefailure(response) {
@@ -85,6 +89,7 @@ const Login = () => {
 
                   dispatch(login(values));
                   dispatch(getPost());
+                  
                   actions.setSubmitting(false)
                   navigate('/home');
 
@@ -150,7 +155,9 @@ const Login = () => {
                         {" "}
                         Sign In {props.isSubmitting ? "Loading..." : null}
                       </button>
+                  
                     </div>
+                    {}
                   </form>
                 )}
               </Formik>

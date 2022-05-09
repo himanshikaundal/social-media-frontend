@@ -1,4 +1,4 @@
-import { GOOGLE_LOGIN, LOGIN, LOGOUT } from "../types"
+import { GOOGLE_LOGIN, LOGIN, LOGIN_ERROR, LOGOUT } from "../types"
 import api from "../../api";
 
 
@@ -41,7 +41,8 @@ export const login = (values) => dispatch => {
             console.log(user)
          
             dispatch({ type: LOGIN, payload: {user,token }})
-        }).catch(rej => console.log(rej))
+
+        }).catch(rej => dispatch({type:LOGIN_ERROR,payload:rej.response.data.message}))
 
     }
 export const logout=()=>dispatch=>{

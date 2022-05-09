@@ -1,9 +1,11 @@
-import { GOOGLE_LOGIN, LOGIN, LOGOUT, SIGNUP, UPDATE_PROFILE } from "../types";
+import { GOOGLE_LOGIN, LOGIN, LOGIN_ERROR, LOGOUT} from "../types";
 
 const initState = {
     user: {},
     userid: '',
-    token: ''
+    token: '',
+    message:'',
+
 
 };
 
@@ -14,6 +16,10 @@ const loginReducer = (state = initState, action) => {
             let userData = action.payload.user;
             let id = action.payload.user._id;
             return { user: userData, userid: id, token: action.payload.token }
+            
+        case LOGIN_ERROR:
+            
+            return{message:action.payload,user:null}
 
         case GOOGLE_LOGIN:
              console.log(action.payload);

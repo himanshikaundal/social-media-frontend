@@ -11,15 +11,15 @@ function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const { user, message } = useSelector(state => state.user)
-  console.log(user, message);
+
 
 
   useEffect(()=>{
-    if (user !== null) {
+    if (user) {
       navigate('/');
     }
   
-  },[message])
+  },[])
   
   const loginSchema = Yup.object().shape({
     name: Yup.string().min(5, 'Too Short!').required('Required'),
@@ -103,11 +103,12 @@ function Signup() {
                 <button type="submit" className="btn-purple  text-white rounded-pill px-5 py-2 border-0"> Sign Up </button>
                 {props.isSubmitting ? "Loading..." : null}
               </div>
+              {user===null&&message}
             </form>
 
           )}
         </Formik>
-        {/* {!user &&{message} } */}
+        
 
       </div>
 

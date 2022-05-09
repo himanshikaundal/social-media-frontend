@@ -1,4 +1,4 @@
-import {  SIGNUP } from "../types"
+import {  SIGNUP, SIGNUP_ERROR } from "../types"
 import api from "../../api";
 import { useSelector } from "react-redux";
 
@@ -20,7 +20,7 @@ export const signup = (values) => dispatch => {
           dispatch({ type: SIGNUP, payload:result.data})
       })
       .catch((error)=>{
-     dispatch({type:SIGNUP,payload:error.response.data.data,message:error.response.data.message})
+     dispatch({type:SIGNUP_ERROR,payload:error.response.data.message})
 
       } )
          
