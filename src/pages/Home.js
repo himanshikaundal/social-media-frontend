@@ -31,9 +31,9 @@ const Home = () => {
 
             <Uploadpost />
           </div>
-          {feeds.map((element) => {
+          {feeds.forEach((element) => {
 
-            return (<div className="pt-3" key={element._id}>
+             (<div className="pt-3" key={element._id}>
               <Feed createdby={element.createby} handleSubmit={onPostClick} content={element.content} media={element.media.map(element => {
                 return element.url
               })} />

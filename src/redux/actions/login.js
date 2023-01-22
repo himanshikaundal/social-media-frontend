@@ -40,11 +40,11 @@ export const login = (values) => dispatch => {
             const { token, user } = result.data;
             console.log(user)
          
-            dispatch({ type: LOGIN, payload: {user,token }})
+            dispatch({ type: LOGIN, payload: {user,token },isUser:true})
 
         }).catch(rej => {
           
-            dispatch({type:LOGIN_ERROR,payload:rej.response.data.message})
+            dispatch({type:LOGIN_ERROR,payload:rej.response.data.message,isUser:false})
         }
             )
 

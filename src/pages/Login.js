@@ -28,6 +28,15 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isUser=user.isUser;
+  let isSubmit=false;
+
+ if(isUser){
+  navigate('/home');
+  dispatch(getPost());
+  console.log('user');
+ }
+
 
   function responsesuccess(response) {
     dispatch(googleLogin(response));
@@ -87,12 +96,8 @@ const Login = () => {
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
-
-                  actions.setSubmitting(true);
-                  dispatch(getPost());
+                  isSubmit=true;
                   dispatch(login(values));
-                  navigate('/home');
-                  actions.setSubmitting(false);
 
                 }}
                 validationSchema={loginSchema}
@@ -153,9 +158,9 @@ const Login = () => {
                         className="btn-purple  text-white rounded-pill px-5 py-2 border-0"
                       >
                         {" "}
-                        Sign In {props.isSubmitting ? "Loading..." : null}
+                        Sign In {props.isSubmitting&&isUser? "Loading..." : null}
                       </button>
-
+                   {isSubmit&&isUser?<div> u are welcome </div>:<div> not a valid user </div>}
                     </div>
                     { }
                   </form>

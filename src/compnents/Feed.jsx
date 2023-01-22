@@ -13,10 +13,10 @@ function Feed(props) {
 
 
     function handleChange(e) {
-       
+
         setstate(e.target.value);
     }
-   
+
 
 
     return (
