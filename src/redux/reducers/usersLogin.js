@@ -19,7 +19,7 @@ const loginReducer = (state = initState, action) => {
             
         case LOGIN_ERROR:
             
-            return{message:action.payload,user:null}
+            return{message:action.payload}
 
         case GOOGLE_LOGIN:
              console.log(action.payload);
@@ -28,7 +28,7 @@ const loginReducer = (state = initState, action) => {
 
         case LOGOUT:
 
-            return {user:null};
+            return null;
 
 
         default:

@@ -1,13 +1,14 @@
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import logo from "../assets/images/login/TO_THE_NEW_Logo.jpg";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { googleLogin, login } from "../redux/actions/login";
 import GoogleLogin from "react-google-login";
 import { getPost } from "../redux/actions/getFeeds";
+import { useEffect } from "react";
 
 
 
@@ -22,16 +23,17 @@ const loginSchema = Yup.object().shape({
 
 
 const Login = () => {
-  const user=useSelector(state=>state.loginUser);
-  console.log(user.message);
+  const user = useSelector(state => state.loginUser);
+  console.log(user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function responsesuccess(response) {
     dispatch(googleLogin(response));
-    dispatch(getPost());
     navigate('/home');
+    dispatch(getPost());
+
 
   }
 
@@ -85,14 +87,12 @@ const Login = () => {
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
+
                   actions.setSubmitting(true);
-
-                  dispatch(login(values));
                   dispatch(getPost());
-                  
-                  actions.setSubmitting(false)
+                  dispatch(login(values));
                   navigate('/home');
-
+                  actions.setSubmitting(false);
 
                 }}
                 validationSchema={loginSchema}
@@ -155,9 +155,9 @@ const Login = () => {
                         {" "}
                         Sign In {props.isSubmitting ? "Loading..." : null}
                       </button>
-                  
+
                     </div>
-                    {}
+                    { }
                   </form>
                 )}
               </Formik>

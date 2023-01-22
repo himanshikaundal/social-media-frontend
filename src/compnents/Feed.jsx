@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import himanshi from '../assets/images/nav-img/himanshi.jpeg'
 import garden from '../assets/images/nav-img/lovegarden.jpg'
@@ -8,6 +8,17 @@ import Comment from './Comment'
 
 function Feed(props) {
     const { user } = useSelector(state => state.loginUser)
+
+    const [state, setstate] = useState(' ');
+
+
+    function handleChange(e) {
+       
+        setstate(e.target.value);
+    }
+   
+
+
     return (
         <>
             <div className="card border border-1  p-4">
@@ -63,7 +74,10 @@ function Feed(props) {
                     <div className='px-3'>
                         <img src={himanshi} width='55rem' height='55rem' class="rounded-circle sm-4" alt="..." />
                     </div>
-                    <Comment />
+                    <form onSubmit={props.handelSubmit}>
+                        <input type='text' value={state} name='state' onChange={handleChange} name='comment' placeholder='Write a comment......' className='rounded-pill  opacity-75 px-2 border border-2 sm-4 w-100' />
+                        <input type='submit' />
+                    </form>
 
                     {/* <input type='text' width='50rem' name='comment' placeholder='Write a comment......' className='rounded-pill  opacity-75 px-2 border border-2 sm-4 w-100' /> */}
 

@@ -11,14 +11,19 @@ const Home = () => {
   const feed = useSelector(state => state.feed);
   const feeds = feed.post;
 
-
-
+  function onPostClick(e){
+    e.preventDefault();
+   console.log(e);
+  //  window.location.reload(true);
+  
+  }
+  
   return (
     <>
 
-      <div className="row   bg-light">
+      <div className="display-flex  bg-light">
         <Navbar />
-        <div className=" mt-4 offset-sm-1 col-sm-3">
+        <div className="  mt-4 offset-sm-1 col-sm-3">
           <Profile />
         </div>
         <div className=" mt-4  col-sm-6">
@@ -29,7 +34,7 @@ const Home = () => {
           {feeds.map((element) => {
 
             return (<div className="pt-3" key={element._id}>
-              <Feed createdby={element.createby} content={element.content} media={element.media.map(element => {
+              <Feed createdby={element.createby} handleSubmit={onPostClick} content={element.content} media={element.media.map(element => {
                 return element.url
               })} />
             </div>)

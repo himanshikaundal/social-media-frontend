@@ -22,3 +22,11 @@
   border: 2px solid lightgrey;
  
 }
+
+.control-files{
+  border: none;
+} 
+
+.post-text{
+  height: 3.5rem;
+}

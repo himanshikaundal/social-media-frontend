@@ -6,21 +6,22 @@ import { signup } from "../redux/actions/signup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const { user, message } = useSelector(state => state.user)
+  const { status, message } = useSelector(state => state.user);
 
+useEffect(()=>{
+if(status===200){
+navigate('/');
+}
+},[]);
 
+console.log(status);
 
-  useEffect(()=>{
-    if (user) {
-      navigate('/');
-    }
-  
-  },[])
-  
   const loginSchema = Yup.object().shape({
     name: Yup.string().min(5, 'Too Short!').required('Required'),
     username: Yup.string().min(5, 'Too Short!').required('Required'),
@@ -41,12 +42,9 @@ function Signup() {
             password: ''
           }}
           onSubmit={(values, actions) => {
-
-            actions.setSubmitting(true)
+          //  actions.setSubmitting(user);
             dispatch(signup(values));
-          
-
-            actions.setSubmitting(false);
+            // actions.setSubmitting(user)
 
           }}
           validationSchema={loginSchema}
@@ -103,12 +101,12 @@ function Signup() {
                 <button type="submit" className="btn-purple  text-white rounded-pill px-5 py-2 border-0"> Sign Up </button>
                 {props.isSubmitting ? "Loading..." : null}
               </div>
-              {user===null&&message}
+             
             </form>
 
           )}
         </Formik>
-        
+
 
       </div>
 

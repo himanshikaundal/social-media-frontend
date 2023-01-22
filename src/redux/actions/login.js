@@ -42,11 +42,17 @@ export const login = (values) => dispatch => {
          
             dispatch({ type: LOGIN, payload: {user,token }})
 
-        }).catch(rej => dispatch({type:LOGIN_ERROR,payload:rej.response.data.message}))
+        }).catch(rej => {
+          
+            dispatch({type:LOGIN_ERROR,payload:rej.response.data.message})
+        }
+            )
 
     }
+
+
 export const logout=()=>dispatch=>{
-    
+  
      dispatch({type:LOGOUT});
     
 }

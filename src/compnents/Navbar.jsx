@@ -14,15 +14,12 @@ function Navbar() {
     const navigate=useNavigate();
 
    function logouthandler(){
-   
       dispatch(logout());
-    //   localStorage.clear();
        navigate('/');
    }
     return (
         <>
-        
-            <nav className="navbar  navbar-light bg-light shadow">
+          <nav className="navbar  navbar-light bg-light shadow">
                 <div className="container-fluid ">
                     <div>
                         <Link to='/' className="navbar-brand" >

@@ -17,10 +17,12 @@ export const signup = (values) => dispatch => {
           const result = res.data;
           console.log(result);
          
-          dispatch({ type: SIGNUP, payload:result.data})
+          dispatch({ type: SIGNUP})
       })
       .catch((error)=>{
-     dispatch({type:SIGNUP_ERROR,payload:error.response.data.message})
+          const status=error.response.data.statusCode;
+          console.log(status);
+     dispatch({type:SIGNUP_ERROR,payload:{error:error.response.data.message,status:status}})
 
       } )
          
